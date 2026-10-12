@@ -1,86 +1,53 @@
-# Minecraft
+# INKRAFT - A Computer Graphics Project
 
-Simple Minecraft-inspired demo written in Python and Pyglet.
+**Made by Shaurya Dogra and Ritak Raj Pandey**
 
-http://www.youtube.com/watch?v=kC3lwK631X8
+A simple Minecraft-inspired 3D block world written in Python using Pyglet and
+OpenGL. It demonstrates core computer graphics concepts: 3D modelling,
+geometric transformations, perspective and orthographic projection, texture
+mapping, hidden surface removal (z-buffer, back-face culling), ray casting,
+fog, alpha blending and drawing 2D UI from primitives.
 
-**Like this project?**
+The game opens on a start screen showing the project title and its authors,
+with the world slowly rotating in the background. Click **START** (or press
+Enter) to begin playing.
 
-You might also like my other Minecraft clone written in C using modern OpenGL (GL shader language). It performs better, has better terrain generation and saves state to a sqlite database. See here:
+## Background Music
 
-https://github.com/fogleman/Craft
+The game plays looping background music, with a mute button (speaker icon) in
+the top right corner.
 
-## Goals and Vision
-
-I would like to see this project turn into an educational tool. Kids love Minecraft and Python is a great first language.
-This is a good opportunity to get children excited about programming.
-
-The code should become well commented and more easily configurable. It should be easy to make some simple changes
-and see the results quickly.
-
-I think it would be great to turn the project into more of a library / API... a Python package that you import and then
-use / configure to setup a world and run it. Something along these lines...
-
-
-```python
-import mc
-
-world = mc.World(...)
-world.set_block(x, y, z, mc.DIRT)
-mc.run(world)
-```
-
-The API could contain functionality for the following:
-
-- Easily configurable parameters like gravity, jump velocity, walking speed, etc.
-- Hooks for terrain generation.
+- By default it plays `music.wav`, an original 8-bit Game Boy style chiptune
+  synthesised from square, triangle and noise waves by `make_music.py`.
+  Run `python make_music.py` to regenerate it.
+- To use your own track (for example Pokemon music you own), copy it into the
+  game folder as `music.mp3`. It is played instead of `music.wav`.
 
 ## How to Run
 
+Requires Python 3 and Pyglet 1.x (Pyglet 2 removed the legacy OpenGL functions
+this project uses).
+
 ```shell
-pip install pyglet
-git clone https://github.com/fogleman/Minecraft.git
+pip install "pyglet<2"
 cd Minecraft
 python main.py
 ```
 
-### Mac
-
-On Mac OS X, you may have an issue with running Pyglet in 64-bit mode. Try running Python in 32-bit mode first:
-
-```shell
-arch -i386 python main.py
-```
-
-If that doesn't work, set Python to run in 32-bit mode by default:
-
-```shell
-defaults write com.apple.versioner.python Prefer-32-Bit -bool yes 
-```
-
-This assumes you are using the OS X default Python.  Works on Lion 10.7 with the default Python 2.7, and may work on other versions too.  Please raise an issue if not.
-    
-Or try Pyglet 1.2 alpha, which supports 64-bit mode:  
-
-```shell
-pip install https://pyglet.googlecode.com/files/pyglet-1.2alpha1.tar.gz 
-```
-
-### If you don't have pip or git
-
-For pip:
-
-- Mac or Linux: install with `sudo easy_install pip` (Mac or Linux) - or (Linux) find a package called something like 'python-pip' in your package manager.
-- Windows: [install Distribute then Pip](http://stackoverflow.com/a/12476379/992887) using the linked .MSI installers.
-
-For git:
-
-- Mac: install [Homebrew](http://mxcl.github.com/homebrew/) first, then `brew install git`.
-- Windows or Linux: see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) from the _Pro Git_ book.
-
-See the [wiki](https://github.com/fogleman/Minecraft/wiki) for this project to install Python, and other tips.
+Run `main.py` from inside the `Minecraft` folder so that `texture.png` is found.
 
 ## How to Play
+
+### Start screen
+
+- Click START or press Enter / Space: start the game
+- ESC: quit
+
+### Music
+
+- M: mute / unmute the music (works anytime)
+- Speaker icon (top right): click to mute / unmute while the mouse is free
+  (on the start screen, or in game after pressing ESC)
 
 ### Moving
 
@@ -104,3 +71,16 @@ See the [wiki](https://github.com/fogleman/Minecraft/wiki) for this project to i
 ### Quitting
 
 - ESC: release mouse, then close window
+
+## Credits
+
+Based on [fogleman/Minecraft](https://github.com/fogleman/Minecraft) by
+Michael Fogleman, used under the MIT License:
+
+> Copyright (C) 2013 Michael Fogleman
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
